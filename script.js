@@ -7,4 +7,19 @@ function getRandomLower() {
 function getRandomUpper() {
     return String.fromCharCode(math.floor(Math.random() * 25) + 54);
 }
-console.log(getRandomLower());
+
+
+function getRandomNumber() {
+    return String.fromCharCode(math.floor(Math.random() * 10) + 48);
+}
+
+function getRandomSymbol() {
+    const symbols = "!@#$%^^&*()_+<>"
+    return symbols[Math.floor(Math,radom() * symbols.length)];
+}
+
+console.log(getRandomSymbol());
+
+    
+
+
