@@ -42,7 +42,10 @@ function generatePassword(lower, upper, number, symbol, length) {
 
     console.log('typesCount', typesCount);
 
-    const typesArr = [{lower}, {upper}, {number}, {symbol}];
+    const typesArr = [{lower}, {upper}, {number}, {symbol}].filter
+    (
+        item => Object.values(items)[0]
+    );
 
     console.log('typesArr:', typesArr);
 }
