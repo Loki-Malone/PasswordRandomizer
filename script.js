@@ -1,13 +1,12 @@
-var resultEl = document.getElementById('resultt')
-var lengthEl = document.getElementById('length')
-var uppercaseEl = document.getElementById('uppercase')
-var lowercaseEl = document.getElementById('lowercase')
-var numbersEl = document.getElementById('numbers')
-var symbolsEl = document.getElementById('symbols')
-var generateEl = document.getElementById('generate')
-var clipboardEl = document.getElementById('clipboard')
+var generatebtn = document.querySelector('#generate')
+  
+function writePassword() {
+    var password = generatePassword();
+    var passwordText = document.querySelector('#password')
 
+    passwordText.value = password;
 
+}
 
 var randomFunc = {
     lower: getRandomLower,
@@ -16,20 +15,20 @@ var randomFunc = {
     symbol:getRandomSymbol
 
 };
+function generatebtn()
 
-generateEL.addEventListner('click', () => {
-    var length = lengthEl.value;
-    var hasLower = lowercaseEl.checked;
-    var hasUpper = UppercaseEl.checked;
-    var hasNumber = NumbercaseEl.checked;
-    var hasSymbol = SymbolcaseEl.checked;
+generatebtn.addEventListner('click', () => {
+    var length = +lengthEl.value;
+    var lower = lowercase.value;
+    var upper = Uppercase.value;
+    var number = Numbercase.value;
+    var symbol = Symbolcase.value;
 
-    console.log(hasLower, hasUpper, hasNumber, hasSymbol, length);
-    resultEl.innerText = generatePassword(
-        hasLower, 
-        hasUpper, 
-        hasNumber, 
-        hasSymbol,
+    passwordText.innerText = generatePassword(
+        lower, 
+        upper, 
+        number, 
+        symbol,
         length
         );
 });
@@ -57,10 +56,12 @@ function generatePassword(lower, upper, number, symbol, length) {
         typesArr.forEach(type => {
             var funcName = Object.keys(type)[0]
         
-            generatePassword += randomFunc[funcName]();
+            generatedPassword += randomFunc[funcName]();
         
         });
     }
+
+    console.log(generatedPassword);
 }
 
 // generator functions
