@@ -1,15 +1,15 @@
-const resultEl = document.getElementById('resultt')
-const lengthEl = document.getElementById('length')
-const uppercaseEl = document.getElementById('uppercase')
-const lowercaseEl = document.getElementById('lowercase')
-const numbersEl = document.getElementById('numbers')
-const symbolsEl = document.getElementById('symbols')
-const generateEl = document.getElementById('generate')
-const clipboardEl = document.getElementById('clipboard')
+var resultEl = document.getElementById('resultt')
+var lengthEl = document.getElementById('length')
+var uppercaseEl = document.getElementById('uppercase')
+var lowercaseEl = document.getElementById('lowercase')
+var numbersEl = document.getElementById('numbers')
+var symbolsEl = document.getElementById('symbols')
+var generateEl = document.getElementById('generate')
+var clipboardEl = document.getElementById('clipboard')
 
 
 
-const randomFunc = {
+var randomFunc = {
     lower: getRandomLower,
     upper: getRandomUpper,
     number:getRandomNumber,
@@ -18,11 +18,11 @@ const randomFunc = {
 };
 
 generateEL.addEventListner('click', () => {
-    const length = lengthEl.value;
-    const hasLower = lowercaseEl.checked;
-    const hasUpper = UppercaseEl.checked;
-    const hasNumber = NumbercaseEl.checked;
-    const hasSymbol = SymbolcaseEl.checked;
+    var length = lengthEl.value;
+    var hasLower = lowercaseEl.checked;
+    var hasUpper = UppercaseEl.checked;
+    var hasNumber = NumbercaseEl.checked;
+    var hasSymbol = SymbolcaseEl.checked;
 
     console.log(hasLower, hasUpper, hasNumber, hasSymbol, length);
     resultEl.innerText = generatePassword(
@@ -38,16 +38,29 @@ function generatePassword(lower, upper, number, symbol, length) {
 
     let generatedPassword = '';
 
-    const typesCount = lower + upper + number + symbol;
+    var typesCount = lower + upper + number + symbol;
 
     console.log('typesCount', typesCount);
 
-    const typesArr = [{lower}, {upper}, {number}, {symbol}].filter
+    var typesArr = [{lower}, {upper}, {number}, {symbol}].filter
     (
         item => Object.values(items)[0]
     );
 
     console.log('typesArr:', typesArr);
+
+    if(typesCount === 0) {
+    return '';
+    }
+
+    for(let i = 0; 1 < length;i += typesCount) {
+        typesArr.forEach(type => {
+            var funcName = Object.keys(type)[0]
+        
+            generatePassword += randomFunc[funcName]();
+        
+        });
+    }
 }
 
 // generator functions
