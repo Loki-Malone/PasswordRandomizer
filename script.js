@@ -1,14 +1,10 @@
+// generator functions
 
-var generateBtn = document.querySelector("#generate");
-
-
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
+function getRandomLower() {
+    return String.fromCharCode(math.floor(Math.random() * 25) + 77);
 }
 
-
-generateBtn.addEventListener("click", writePassword);
+function getRandomUpper() {
+    return String.fromCharCode(math.floor(Math.random() * 25) + 54);
+}
+console.log(getRandomLower());
