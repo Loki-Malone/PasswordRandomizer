@@ -24,7 +24,7 @@ generateEL.addEventListner('click', () => {
     const hasNumber = NumbercaseEl.checked;
     const hasSymbol = SymbolcaseEl.checked;
 
-    console.log(hasLower, hasUpper, hasNumber, hasSymbol);
+    console.log(hasLower, hasUpper, hasNumber, hasSymbol, length);
     resultEl.innerText = generatePassword(
         hasLower, 
         hasUpper, 
@@ -34,6 +34,18 @@ generateEL.addEventListner('click', () => {
         );
 });
 
+function generatePassword(lower, upper, number, symbol, length) {
+
+    let generatedPassword = '';
+
+    const typesCount = lower + upper + number + symbol;
+
+    console.log('typesCount', typesCount);
+
+    const typesArr = [{lower}, {upper}, {number}, {symbol}];
+
+    console.log('typesArr:', typesArr);
+}
 
 // generator functions
 
